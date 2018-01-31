@@ -9,6 +9,19 @@
 # named after the groups with the results.
 #
 # ------------------------------------------------------------------------
+
+<#
+.SYNOPSIS
+  List users of given AD user groups
+.DESCRIPTION
+  Create csv files containing group members of AD groups (ID, name, Site etc)
+.INPUTS
+  .\ADgroups.txt
+.OUTPUTS
+  .\ADgroups.csv
+.EXAMPLE
+  \getADGroupMembers.ps1
+ #>
 foreach ($pvg in Get-Content .\privategroups.txt){
 Get-ADGroupMember $pvg | Get-ADUser -Property displayName | 
 select @{name="AM";Expression={$_.samaccountname}},@{name="USER";Expression={$_.displayname}} | 
