@@ -1,3 +1,14 @@
+# ------------------------------------------------------------------------
+# NAME: getADGroupMembers.ps1
+# AUTHOR: spatournos
+# DATE:Jan 2018
+#
+# COMMENTS: This script takes a list of Active Directory User groups, 
+# in the form of a txt file (each line must be a valid AD User Group), 
+# lists their members (name,ID etc) and creates csv files, 
+# named after the groups with the results.
+#
+# ------------------------------------------------------------------------
 foreach ($pvg in Get-Content .\privategroups.txt){
 Get-ADGroupMember $pvg | Get-ADUser -Property displayName | 
 select @{name="AM";Expression={$_.samaccountname}},@{name="USER";Expression={$_.displayname}} | 
