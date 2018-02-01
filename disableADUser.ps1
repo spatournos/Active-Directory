@@ -1,3 +1,10 @@
+# ------------------------------------------------------------------------
+# NAME: disableADUser.ps1
+# AUTHOR: spatournos
+# DATE: Jul 2017
+#
+# ------------------------------------------------------------------------
+
 # As input use a .csv file named with format: 
 #  user,
 #  "UserID"
