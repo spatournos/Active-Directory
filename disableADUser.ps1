@@ -3,6 +3,10 @@
 # AUTHOR: spatournos
 # DATE: Jul 2017
 #
+# COMMENT: Given a list of Active Directory Users, in the form of a csv file
+# (each line must be a valid AD UserID), 
+# remove all memberships, disable account and move User to OU:Not_Active.
+# Then print in console and log results in a txt file
 # ------------------------------------------------------------------------
 
 # As input use a .csv file named with format: 
