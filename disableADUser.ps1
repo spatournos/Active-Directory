@@ -9,9 +9,9 @@
 #  user,
 #  "UserID"
 #The user name will be referenced as $_.User in powershell 
-$csvFile = ".\hello.csv"
+$csvFile = ".\dismiss.csv"
 # Create a log file
-$log = ".\kitty.log"
+$log = ".\dismissed.log"
 # Set OU for "Not Active users"
 $disabledUsersOU = "OU=_Not Active Users,DC=my,DC=domain,DC=com"
 
