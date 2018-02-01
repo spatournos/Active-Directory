@@ -19,15 +19,15 @@ Import-Csv $csvFile | ForEach-Object
     # -Confirm:$false DON'T CONFIRM THE GROUPS TO REMOVE
     # Remove the flag if you want confirmation
     Remove-ADGroupMember -Identity $group -Members $user -Confirm:$false
-	}
+  }
 	
-	# Disable the account
-	Disable-ADAccount -Identity $_.User
+  # Disable the account
+  Disable-ADAccount -Identity $_.User
 		
-	# Move user object to disabled users OU
-	$user | Move-ADObject -TargetPath $disabledUsersOU
+  # Move user object to disabled users OU
+  $user | Move-ADObject -TargetPath $disabledUsersOU
 	
   # Print info in screen and in log file
-	Write-Host "Moved user: "$_.User"to Not Active Users"
-	Write-Output "Moved user: $($_.User) to Not Active Users" | Out-File $log -append
+  Write-Host "Moved user: "$_.User"to Not Active Users"
+  Write-Output "Moved user: $($_.User) to Not Active Users" | Out-File $log -append
 }
