@@ -31,3 +31,4 @@ Import-Csv $csvFile | ForEach-Object
   Write-Host "Moved user: "$_.User"to Not Active Users"
   Write-Output "Moved user: $($_.User) to Not Active Users" | Out-File $log -append
 }
+
