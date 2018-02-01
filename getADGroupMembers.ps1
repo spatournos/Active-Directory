@@ -16,16 +16,18 @@
 .DESCRIPTION
   Create csv files containing group members of AD groups (ID, name, Site etc)
 .INPUTS
-  .\ADgroups.txt
+  ADgroups.txt
 .OUTPUTS
-  .\ADgroups.csv
+  ADgroups.csv
 .EXAMPLE
-  \getADGroupMembers.ps1
+  getADGroupMembers.ps1
  #>
  
-foreach ($pvg in Get-Content .\privategroups.txt)
+$ADgroups=".\ADGroups.txt" 
+foreach ($pvg in Get-Content $ADgroups)
 {
   Get-ADGroupMember $pvg | Get-ADUser -Property displayName | 
-  select @{name="AM";Expression={$_.samaccountname}},@{name="USER";Expression={$_.displayname}} | 
+  select @{name="AM";Expression={$_.samaccountname}},@{name="USER";Expression={$_.displayname}},
+	@{name="Site";Expression={$_.DistinguishedName.split(',')[1].split('=')[1]}} | 
   Export-Csv -path .\"$pvg".csv -encoding "utf8" -NoTypeInformation
 }
