@@ -1,6 +1,6 @@
 # As input use a .csv file named with format: 
-#	  user,
-#	  "UserID"
+# 	user,
+# 	"UserID"
 #The user name will be referenced as $_.User in powershell 
 $csvFile = ".\hello.csv"
 # Create a log file
@@ -10,7 +10,7 @@ $disabledUsersOU = "OU=_Not Active Users,DC=my,DC=domain,DC=com"
 
 Import-Csv $csvFile | ForEach-Object 
 {
-	# Retrieve the user object and MemberOf property
+# Retrieve the user object and MemberOf property
 	$user = Get-ADUser -Identity $_.User -Properties MemberOf
 	
   # Remove all group memberships (will leave Domain Users as this is NOT in the MemberOf property returned by Get-ADUser)
