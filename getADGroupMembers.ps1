@@ -21,8 +21,14 @@
   ADgroups.csv
 .EXAMPLE
   getADGroupMembers.ps1
+.LINK
+  https://support.microsoft.com/en-us/help/2693643/remote-server-administration-tools-rsat-for-windows-operating-systems
  #>
- 
+
+# For starters check:
+# https://support.microsoft.com/en-us/help/2693643/remote-server-administration-tools-rsat-for-windows-operating-systems
+Import-Module ActiveDirectory 
+
 $ADgroups=".\ADGroups.txt" 
 foreach ($pvg in Get-Content $ADgroups)
 {
