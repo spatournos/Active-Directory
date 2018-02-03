@@ -9,6 +9,9 @@
 # Then print in console and log results in a txt file
 # ------------------------------------------------------------------------
 
+# For starters check:
+# https://support.microsoft.com/en-us/help/2693643/remote-server-administration-tools-rsat-for-windows-operating-systems
+Import-Module ActiveDirectory
 # As input use a .csv file named with format: 
 #  user,
 #  "UserID"
