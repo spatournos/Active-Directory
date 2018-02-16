@@ -1,7 +1,7 @@
 # ------------------------------------------------------------------------
 # NAME: getADGroupMembers.ps1
 # AUTHOR: spatournos
-# DATE:Jan 2018
+# DATE: Jan 2018
 #
 # COMMENTS: This script takes a list of Active Directory User groups, 
 # in the form of a txt file (each line must be a valid AD User Group), 
