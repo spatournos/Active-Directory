@@ -3,26 +3,27 @@
 # AUTHOR: spatournos
 # DATE: Feb 2026
 #
-# COMMENTS: This script takes a list of Active Directory User groups, 
-# in the form of a txt file (each line must be a valid AD User Group), 
-# lists their members (name,ID etc) and creates csv files, 
-# named after the groups with the results.
+# COMMENTS: This script generates  a custom length (default is 14 chars), random password 
+using uppercase, lowercase, digits and symbols and then 
+scores it from Very Weak to Very Strong based on length and character diversity.
 #
 # ------------------------------------------------------------------------
 
 <#
 .SYNOPSIS
-  List users of given AD user groups
+  Create strong Password with random characters
 .DESCRIPTION
-  Create csv files containing group members of AD groups (ID, name, Site etc)
+  Create strong Password with 14 random characters using uppercase, lowercase, digits and symbols
 .INPUTS
-  ADgroups.txt
 .OUTPUTS
-  ADgroups.csv
+  New password: 9vQfZ@6bypB7#L
+  Password Strength: Very Strong
 .EXAMPLE
-  getADGroupMembers.ps1
+  .\PasswordGenerator.ps1
+  or
+  .\PasswordGenerator.ps1 -Verbose (shows scoring Details)
 .LINK
-  https://support.microsoft.com/en-us/help/2693643/remote-server-administration-tools-rsat-for-windows-operating-systems
+  https://powershellfaqs.com/powershell-random-password-generator/
  #>
  
 #Create Strong Password
@@ -81,4 +82,5 @@ switch ($score) {
 6 { $randomstringScore = 'Very Strong' }
 }
 Write-Output "Password Strength: $randomstringScore"
+
 
